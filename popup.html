@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Color Toolbox</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="popup-container">
+    <!-- Title -->
+    <header>
+      <h1>Color Toolbox</h1>
+    </header>
+    <div class="mode-toggle">
+      <label class="switch">
+        <input type="checkbox" id="mode-toggle">
+        <span class="slider round"></span>
+      </label>
+    </div>
+
+    <!-- Color Picker -->
+    <section class="color-picker">
+      <h2>Color Picker</h2>
+      <input type="color" id="color-input" value="#33c2ff">
+    </section>
+
+    <!-- Color Converter -->
+    <section class="color-converter">
+      <h2>Color Converter</h2>
+      <div class="converter-input sub-section">
+        <input type="text" id="color-code-input" placeholder="Enter Hex Code">
+        <button id="convert-button">Convert</button>
+      </div>
+
+      <div class="conversion-results">
+        <!-- RGB -->
+        <div class="result-item">
+          <span class="result">RGB:</span>
+          <span id="rgb-result">N/A</span>
+          <button class="copy-button" data-clipboard-target="#rgb-result">Copy</button>
+        </div>
+
+        <!-- CMYK -->
+        <div class="result-item">
+          <span class="result">CMYK:</span>
+          <span id="cmyk-result">N/A</span>
+          <button class="copy-button" data-clipboard-target="#cmyk-result">Copy</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Error Message Element (Hidden by Default) -->
+    <div id="error-message" class="hidden">
+      <p>Error: Invalid Color Code</p>
+    </div>
+
+    <!-- Toast Message (Hidden by Default) -->
+    <div id="toast" class="hidden">Copied to Clipboard!</div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+
+</html>

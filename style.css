@@ -1,0 +1,257 @@
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script');
+
+/* Reset some default styles */
+body, h1, h2, p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Global styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  color: #333;
+  /* Add a smooth transition for background color */
+  transition: background-color 0.3s;
+}
+
+.popup-container {
+  max-width: 300px;
+  margin: 20px;
+  background-color: #fff;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  border-radius: 5px;
+  /* shadow for container */
+  box-shadow:
+    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+    0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
+}
+
+/* Header styles */
+header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  text-align: center;
+  overflow: hidden;
+  border-radius: 0 0 65% 65% / 30%;
+  padding: 10px;
+  color: #FFF;
+  text-shadow: 1px 1px 1px #333;
+  background-image: linear-gradient( 135deg, #9f05ff69 10%, #fd5e086b 100%);
+}
+
+h1 {
+  font-size: 48px;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 10px;
+  font-family: 'Dancing Script', cursive;
+}
+
+/* Dark mode toggle styles */
+.mode-toggle {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 14px;
+  margin-bottom: -22px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+  margin-left: 10px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 34px;
+  overflow: hidden;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(20px);
+  -ms-transform: translateX(20px);
+  transform: translateX(20px);
+}
+
+/* Color Picker styles */
+.color-picker h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.color-picker input[type="color"] {
+  width: 5%;
+  padding: 25px;
+  margin: 0px 0px 20px 0px;
+  border: solid 1px #eeeeee;
+}
+
+/* Remove the default outline */
+:focus {
+  outline: none;
+}
+
+/* Create a custom focus style */
+:focus {
+  box-shadow: 0 0 5px 1px #ff189c;
+}
+
+/* Color Converter styles */
+.color-converter h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.converter-input {
+  display: flex;
+  align-items: center;
+}
+
+.converter-input input[type="text"] {
+  flex: 1;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+#convert-button {
+  padding: 5px 10px;
+  background-color: #2196F3;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  margin-left: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#convert-button:hover {
+  background-color: #0d8aec;
+}
+
+/* Conversion results styles */
+.result-item {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.result-item span {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.result {
+  font-size: 14px;
+}
+
+/* Copy button styles */
+.result-item .copy-button {
+  padding: 5px 10px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-left: auto;
+  display: block;
+}
+
+.copy-button:hover {
+  background-color: #000;
+}
+
+/* Error message styles */
+#error-message {
+  display: none;
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #f44336;
+  color: white;
+  border-radius: 4px;
+  text-align: center;
+}
+
+#error-message:not(.hidden) {
+  display: block;
+}
+
+/* Toast message styles */
+#toast {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 75%;
+  transform: translate(-50%, -50%);
+  background-color: mediumslateblue;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  z-index: 1000;
+}
+
+#toast.show {
+  display: block;
+  animation: fadeInOut 2s ease-in-out;
+}
+
+@keyframes fadeInOut {
+  0%, 100% { opacity: 0; }
+  10%, 90% { opacity: 1; }
+}
+
+/* Dark mode styles */
+body.dark-mode {
+  background-color: #28282B;
+  color: #fff;
+}
+
+.dark-mode .popup-container {
+  background-color: #444;
+}
+
+.dark-mode .copy-button {
+  background-color: #fff;
+  color: #333;
+}
